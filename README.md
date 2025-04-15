@@ -1,43 +1,80 @@
 # WDAS SQL Database Project
-Normalized SQL database project with schema design, ERD, and advanced queries.
 
 ## Overview
-This project demonstrates a fully normalized SQL database built for the fictional organization *WDAS*_(Whale Data Analytical Systems)_. The goal was to create a clean and scalable database system with clear entity relationships, optimized queries, and data integrity.
+The WDAS (Whale Dive Annotation System) project is a fully normalized relational database designed to support scientific computing workflows in behavioral ecology. It was built to manage biologging datasets, annotations, and behavior classifications at scale. The database enables high-throughput data ingestion, processing, and traceability for iterative research workflows.
+
+Developed in collaboration with researchers at Syracuse University, this system simulates real-world ecological data management scenarios — specifically focusing on humpback whale behavior — and showcases schema design, query optimization, and UI prototyping.
 
 ## Tools & Technologies
-- SQL (PostgreSQL / MySQL / SQLite)
-- Entity-Relationship Diagram (ERD)
-- Excel (for initial data structure and import)
-- DB design principles (1NF to 3NF)
+- SQL (PostgreSQL / SQLite)
+- Entity Relationship Modeling (ERD)
+- Jupyter Notebook (Google Colab compatible)
+- Python (for automation and querying)
+- HTML/CSS (UI concepts)
+- Lucidchart / dbdiagram.io (for schema design)
+
+---
 
 ## Features
-- Designed a normalized database schema up to 3NF
-- Developed an Entity-Relationship Diagram (ERD)
-- Created SQL tables with primary/foreign keys and constraints
-- Populated tables using sample data and bulk inserts
-- Built advanced SQL queries including:
-  - Multi-table JOINs
-  - Aggregations and subqueries
-  - Filtering with WHERE, CASE statements
-  - Reporting with GROUP BY, HAVING, and ORDER BY
+- Normalized schema up to 3NF
+- Conceptual and logical ERD models
+- SQL DDL scripts for schema creation
+- Advanced SQL queries (joins, subqueries, aggregates)
+- Annotation tracking with version history
+- User logs and import traceability
+- Sample data visualization walkthrough in notebook
+- UI prototypes for dataset import and summary view
 
-## Entity-Relationship Diagram
-*Insert ERD image here once uploaded — place in a `/diagrams` folder*
+---
+
+## Entity-Relationship Diagrams
+
+- ![Conceptual Model](diagrams/dataModel_Conceptual.jpeg)
+- ![Logical Model](diagrams/dataModel_Logical.jpeg)
+
+These diagrams illustrate how entities such as `DATASET_DETAILS`, `ANNOTATIONS`, `DIVE_STATS`, and `ML_CLASSIFICATIONS` interact within the schema. The design emphasizes traceability, flexibility, and scalability.
+
+---
+
+## How to Run
+
+Use the following walkthrough notebook to set up and explore the database:
+
+- [`WDAS_Walkthrough.ipynb`](notebooks/WDAS_Walkthrough.ipynb)
+
+### Workflow Steps:
+1. **Database Creation**  
+   Run Step 1 in the notebook to initialize the database schema.
+2. **Data Ingestion**  
+   Insert sample datasets and annotations.
+3. **Querying & Visualization**  
+   Run the included SQL queries to extract insights and view summaries.
+
+---
 
 ## Example SQL Query
+
 ```sql
--- Retrieve employees and their departments where salary > average
-SELECT e.name, d.department_name, e.salary
-FROM employees e
-JOIN departments d ON e.department_id = d.id
-WHERE e.salary > (
-    SELECT AVG(salary)
-    FROM employees
-);
+-- Retrieve all dives with an average depth greater than 30m
+SELECT d.dataset_id, AVG(d.depth) AS avg_depth
+FROM dive_stats d
+GROUP BY d.dataset_id
+HAVING AVG(d.depth) > 30;
+
+
 
 /wdas-sql-database
-├── schema/          # SQL scripts for table creation
-├── data/            # Sample data files or CSVs
-├── queries/         # Custom queries for reporting
-├── diagrams/        # ERD image or source file
-└── README.md
+├── schema/                # SQL scripts for schema and table creation
+│   └── ddl_wdas_schema.sql
+├── notebooks/             # Workflow demonstration notebook
+│   └── WDAS_Walkthrough.ipynb
+├── diagrams/              # ERD visualizations (conceptual/logical)
+│   ├── dataModel_Conceptual.jpeg
+│   └── dataModel_Logical.jpeg
+├── docs/                  # Technical whitepaper and supplemental material
+│   └── Whitepaper.pdf
+├── ui-prototypes/         # HTML-based UI mockups for import and summary views
+│   ├── form_importManagerUI.html
+│   └── form_datasetSummaryViewUI.html
+└── README.md              # This documentation file
+
