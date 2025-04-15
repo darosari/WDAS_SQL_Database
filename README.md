@@ -62,19 +62,24 @@ GROUP BY d.dataset_id
 HAVING AVG(d.depth) > 30;
 
 
-
 /wdas-sql-database
-├── schema/                # SQL scripts for schema and table creation
-│   └── ddl_wdas_schema.sql
-├── notebooks/             # Workflow demonstration notebook
-│   └── WDAS_Walkthrough.ipynb
-├── diagrams/              # ERD visualizations (conceptual/logical)
+├── schema/                        # SQL scripts for schema and table creation
+│   ├── ddl_wdas_schema.sql
+│   └── README.md                  # Description of schema contents
+├── notebooks/                     # Jupyter notebooks for setup and query execution
+│   ├── WDAS_Walkthrough.ipynb
+│   └── README.md                  # Notebook purpose and usage
+├── diagrams/                      # ERD visualizations for data model
 │   ├── dataModel_Conceptual.jpeg
-│   └── dataModel_Logical.jpeg
-├── docs/                  # Technical whitepaper and supplemental material
-│   └── Whitepaper.pdf
-├── ui-prototypes/         # HTML-based UI mockups for import and summary views
+│   ├── dataModel_Logical.jpeg
+│   └── README.md                  # Notes on the diagrams
+├── docs/                          # Technical whitepaper and supplemental material
+│   ├── Whitepaper.pdf
+│   └── README.md                  # Description of documentation contents
+├── ui-prototypes/                 # HTML-based UI mockups
 │   ├── form_importManagerUI.html
-│   └── form_datasetSummaryViewUI.html
-└── README.md              # This documentation file
+│   ├── form_datasetSummaryViewUI.html
+│   └── README.md                  # UI mockup explanation
+└── README.md                      # Main project overview
+
 
