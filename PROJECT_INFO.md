@@ -1,64 +1,56 @@
-# Project Information: MTA Delay Rideshare Prediction
+# Project Information: WDAS SQL Database Project
 
 ## Project Title
-**Predicting Rideshare Demand Based on NYC Subway Delays**
+**Whale Dive Annotation System (WDAS): A Relational Database for Marine Behavior Research**
 
 ## Course
-IST 707: Applied Machine Learning
+IST 659: Data Administration Concepts and Database Management
 
 ## Team Members
-Dawryn Rosario, Marko Masnikosa, Rianne Parker
+Dawryn Rosario, Gil Raitses, Ethan Qui
 
 ## Summary of Work
-This project developed an end-to-end modeling pipeline to predict NYC rideshare demand based on subway delays. Using a variety of publicly available data sources—including MTA delay reports, TLC rideshare records, and NOAA weather data—we constructed a cleaned and merged dataset to train a regression model. 
+The Whale Dive Annotation System (WDAS) was developed as a fully normalized relational database to manage marine behavioral research data. The project simulates a scientific computing workflow for managing biologging, annotations, and classification results related to humpback whale dives. 
 
-After exploratory data analysis (EDA), we implemented and fine-tuned an XGBoost regressor to predict rideshare volumes, incorporating temporal, weather, and transportation system features. Our work demonstrates the potential of combining multiple city datasets to support infrastructure planning and transportation policy.
+Built with PostgreSQL and visualized using ERD tools, this system emphasizes data traceability, reproducibility, and version control—core principles in behavioral ecology. Our work included schema design (up to 3NF), SQL DDL scripts, Jupyter-based data walkthroughs, and HTML-based UI mockups for dataset ingestion and analysis.
 
 ## What I'm Most Proud Of
-I am are most proud of successfully integrating and preprocessing three disparate public data sources (TLC, MTA, and NOAA), and applying XGBoost with hyperparameter tuning to produce interpretable, high-performing results. Our model showed clear value in helping predict demand spikes and provided insights into how subway reliability affects rideshare behavior—insights that could be of use to NYC DOT and rideshare companies.
+I'm most proud of our database architecture's ability to simulate a real-world ecological data pipeline. From tracking versioned annotations to linking machine learning classifications with datasets, this project displays a full ecosystem of data operations with integrity and scalability. Collaborating with teammates on normalization, diagramming, and SQL query logic was also a rewarding challenge.
 
 ## Project Contents
 
-- `checkpoint1/`: Initial proposal and rubric documents  
-  - `proposal.md`  
-  - `proposal_rubric.md`  
+- `diagrams/`: Entity-Relationship Diagrams for conceptual and logical schema
+  - `dataModel_Conceptual.jpeg`  
+  - `dataModel_Logical.jpeg`  
+  - `README.md`  
 
-- `checkpoint2/`: Mid-project development notebooks and rubrics  
-  - `checkpoint2_rubric.md`  
-  - `checkpoint2_rubric_local.md`  
-  - `submission.ipynb`  
-  - `example_local.ipynb`  
+- `docs/`: Supporting documentation and research whitepaper
+  - `Whitepaper.pdf`  
+  - `README.md`  
 
-- `checkpoint3/`: Final checkpoint rubric  
-  - `checkpoint3_rubric.md`  
+- `notebooks/`: Jupyter walkthrough for loading, querying, and interpreting WDAS data
+  - `WDAS_Walkthrough.ipynb`  
+  - `README.md`  
 
-- `Data Processing/mta_delays/`: Jupyter notebooks for data gathering, processing, and modeling  
-  - `MTA Daily Ridership_data_processed.ipynb`  
-  - `MTA_delays_EDA.ipynb`  
-  - `MTA_delays_initial_modeling.ipynb`  
-  - `TLC_data_gathering.ipynb`  
-  - `weather_data_processed_draft.ipynb`  
-  - `weather_data_processed.ipynb`  
+- `schema/`: SQL scripts to create all WDAS database tables
+  - `ddl_wdas_schema.sql`  
+  - `README.md`  
 
-- `final-report/`: Final summary documents  
-  - `final_report.md`  
-  - `final_rubric.md`  
+- `ui-prototypes/`: HTML-based user interface mockups for dataset import and summary view
+  - `form_importManagerUI.html`  
+  - `form_datasetSummaryViewUI.html`  
+  - `README.md`  
 
-- `pictures/`: Visualizations generated from model outputs and analysis  
-  - `aVp_overtime.png`  
-  - `distribution_of_residuals.png`  
-  - `MTA_delays_per_year.png`  
-  - `predictionsvactual.png`  
-  - `sub_delays_v_rideshare_count.png`  
-  - `xgboost_feature_importants.png`  
-
-- `README.md`: Main documentation describing project objectives and setup
+- `README.md`: Main documentation describing project goals, structure, and instructions
 
 ## Required Software
+- PostgreSQL or SQLite
 - Jupyter Notebook
-- Python 3.8+
-- Required libraries (install via `requirements.txt` or pip):
-  - pandas, numpy, matplotlib, seaborn, scikit-learn, xgboost
+- Python 3.x
+- Compatible browser (for UI HTML previews)
+- Recommended tools:
+  - dbdiagram.io or Lucidchart for ERD
+  - pgAdmin (if using PostgreSQL)
 
 ---
 
